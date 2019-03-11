@@ -22,7 +22,7 @@ DrawTriangle:: ~DrawTriangle()
     
 }
 
-void DrawTriangle::test()
+void DrawTriangle::init()
 {
     //vertex shader
     const char* verty = "version 330 Core \n"
@@ -63,7 +63,7 @@ void DrawTriangle::test()
     }
     
     
-    unsigned int shaderPragam;
+    /*unsigned int shaderPragam;*/
     shaderPragam = glCreateProgram();
     glAttachShader(shaderPragam, vertexShader);
     glAttachShader(shaderPragam, fragShader);
@@ -90,11 +90,32 @@ void DrawTriangle::test()
         0.0f,  0.5f, 0.0f
     };
     //    verticies = verticy;
-    unsigned int vbo;
-    glGenBuffers(1, &vbo);
-    glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(verticy), verticy, GL_STATIC_DRAW);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
-    glUseProgram(shaderPragam);
+    //unsigned int vbo;
+	/*glGenBuffers(1, &vbo);
+	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(verticy), verticy, GL_STATIC_DRAW);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(0);
+	glUseProgram(shaderPragam);*/
+	
+	glBindVertexArray(VBO);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(verticy), verticy, GL_STATIC_DRAW);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(0);
 }
+
+void DrawTriangle::render()
+{
+	glUseProgram(shaderPragam);
+	glBindVertexArray(VAO);
+	glDrawArrays(GL_TRIANGLES, 0, 3);
+}
+
+void DrawTriangle::clear()
+{
+	glDeleteVertexArrays(1, &VAO);
+	glDeleteBuffers(1, &VBO);
+}
+
+

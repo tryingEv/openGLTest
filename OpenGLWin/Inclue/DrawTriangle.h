@@ -15,11 +15,14 @@ class DrawTriangle
 {
 public:
     float* verticies;
+	unsigned int shaderPragam;
+	unsigned int VBO, VAO;
     
     DrawTriangle();
     ~ DrawTriangle();
-    void test();
-    
+    void init();
+	void render();
+	void clear();
 };
 
 #endif /* DrawTriangle_hpp */
