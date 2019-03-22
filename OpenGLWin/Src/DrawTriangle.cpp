@@ -43,6 +43,7 @@ void DrawTriangle::init()
         cout<<"compile vertex shader failed, the error is " << infoLog<<endl;
     }
     
+	//fragment shader
     const char* fragmentShader = "version 330 Core \n"
     "out vec4 fragColor \n"
     "void main() \n"
@@ -77,32 +78,27 @@ void DrawTriangle::init()
         cout<<"link shader failed, error:"<<linkShaderInfoLog<<endl;
     }
     
-    glUseProgram(shaderPragam);
+    //glUseProgram(shaderPragam);
     glDeleteShader(vertexShader);
     glDeleteShader(fragShader);
     
-    
-    
-    float verticy[] =
+    float verticies[] =
     {
         -0.5f, -0.5f, 0.0f,
         0.5f, -0.5f, 0.0f,
         0.0f,  0.5f, 0.0f
     };
-    //    verticies = verticy;
-    //unsigned int vbo;
-	/*glGenBuffers(1, &vbo);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(verticy), verticy, GL_STATIC_DRAW);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-	glEnableVertexAttribArray(0);
-	glUseProgram(shaderPragam);*/
-	
-	glBindVertexArray(VBO);
+	glGenVertexArrays(1, &VAO);
+	glGenBuffers(1, &VBO);
+	glBindVertexArray(VAO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(verticy), verticy, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(verticies), verticies, GL_STATIC_DRAW);
+
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
+
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
 }
 
 void DrawTriangle::render()
