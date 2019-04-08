@@ -28,6 +28,9 @@
     <Filter Include="Src">
       <UniqueIdentifier>{b42eacc6-20e8-4ed2-8a02-ba07d8c4f1c2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{cafb0b8c-976c-474c-b774-61d9fa7592e0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inclue\glad\glad.h">
@@ -48,6 +51,12 @@
     <ClInclude Include="pch.h">
       <Filter>Include</Filter>
     </ClInclude>
+    <ClInclude Include="Inclue\ReadShader.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Inclue\stb_image.h">
+      <Filter>Include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGLWin.cpp">
@@ -62,5 +71,16 @@
     <ClCompile Include="Src\DrawTriangle.cpp">
       <Filter>Src</Filter>
     </ClCompile>
+    <ClCompile Include="Src\ReadShader.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\MySelfStbImage.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shader\vertex.vs">
+      <Filter>Shader</Filter>
+    </None>
   </ItemGroup>
 </Project>

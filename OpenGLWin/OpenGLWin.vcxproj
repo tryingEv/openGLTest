@@ -159,6 +159,8 @@
     <ClInclude Include="Inclue\GLFW\glfw3.h" />
     <ClInclude Include="Inclue\GLFW\glfw3native.h" />
     <ClInclude Include="Inclue\KHR\khrplatform.h" />
+    <ClInclude Include="Inclue\ReadShader.h" />
+    <ClInclude Include="Inclue\stb_image.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +173,11 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Src\DrawTriangle.cpp" />
+    <ClCompile Include="Src\MySelfStbImage.cpp" />
+    <ClCompile Include="Src\ReadShader.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shader\vertex.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
